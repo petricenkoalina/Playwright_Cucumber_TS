@@ -20,34 +20,10 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install system dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y \
-            libasound2 \
-            libatk1.0-0 \
-            libatk-bridge2.0-0 \
-            libcups2 \
-            libdrm2 \
-            libgbm1 \
-            libgtk-3-0 \
-            libnspr4 \
-            libnss3 \
-            libxcomposite1 \
-            libxdamage1 \
-            libxfixes3 \
-            libxrandr2 \
-            libxshmfence1 \
-            libxkbcommon0 \
-            libpangocairo-1.0-0 \
-            libpango-1.0-0 \
-            libxcb1 \
-            libx11-6
-
       - name: Install dependencies
         run: npm ci
 
-      - name: Install Playwright browsers
+      - name: Install Playwright browsers + system deps
         run: npx playwright install --with-deps
 
       - name: Run tests
